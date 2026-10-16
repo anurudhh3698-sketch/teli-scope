@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuyrudh Singh - Telephone</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .phone {
+            max-width: 300px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #202936;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px #0006;
+        }
+
+        h1 {
+            color: #48dbfb;
+        }
+
+        input {
+            width: 90%;
+            padding: 15px 5px;
+            font-size: 22px;
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 17px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: #34495e;
+            color: white;
+        }
+
+        button:hover {
+            background: #48dbfb;
+            color: #111;
+        }
+
+        .call {
+            background: #20bf6b;
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .clear {
+            background: #eb4d4b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📞 Anuyrudh Singh</h1>
+    <p>Welcome to My Telephone Website</p>
+
+    <div class="phone">
+        <h2>Telephone</h2>
+
+        <input type="tel" id="number"
+               placeholder="Enter phone number">
+
+        <div class="buttons">
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+            <button onclick="press('7')">7</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('9')">9</button>
+            <button onclick="press('*')">*</button>
+            <button onclick="press('0')">0</button>
+            <button onclick="press('#')">#</button>
+        </div>
+
+        <button class="call" onclick="callNumber()">
+            📞 Call
+        </button>
+
+        <button class="clear" style="width:100%; margin-top:10px;"
+                onclick="clearNumber()">
+            Clear
+        </button>
+    </div>
+
+    <script>
+        function press(digit) {
+            document.getElementById("number").value += digit;
+        }
+
+        function clearNumber() {
+            document.getElementById("number").value = "";
+        }
+
+        function callNumber() {
+            const number = document.getElementById("number").value.trim();
+
+            if (!number) {
+                alert("Please enter a phone number!");
+                return;
+            }
+
+            window.location.href = "tel:" + number;
+        }
+    </script>
+
+</body>
+</html>
